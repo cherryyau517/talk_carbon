@@ -5,6 +5,8 @@ class MonthlyRecord < ApplicationRecord
 
   # Validations
 
+  validates :monthly_net_carbon, :presence => true
+
   validates :user_id, :presence => true
 
   # Scopes

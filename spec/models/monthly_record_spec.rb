@@ -12,6 +12,8 @@ RSpec.describe MonthlyRecord, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:monthly_net_carbon) }
+
     it { should validate_presence_of(:user_id) }
 
     end
