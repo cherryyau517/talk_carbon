@@ -12,6 +12,9 @@ class ActivitiesLogResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :comments,
+             foreign_key: :log_id
+
   belongs_to :user
 
   # Indirect associations
