@@ -42,7 +42,7 @@
 
     <%= f.label :liker_id %>
     <!-- Input for liker_id start -->
-    <%= f.number_field :liker_id, class: liker_class, placeholder: "Enter liker" %>
+    <%= f.collection_select :liker_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for liker_id end -->
     <% if liker_was_invalid %>
       <% like.errors.full_messages_for(:liker).each do |message| %>
