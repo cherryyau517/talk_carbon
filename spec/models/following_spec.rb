@@ -12,5 +12,7 @@ RSpec.describe Following, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:follower_id) }
+
     end
 end
