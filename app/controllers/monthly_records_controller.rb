@@ -1,4 +1,6 @@
 class MonthlyRecordsController < ApplicationController
+  before_action :current_user_must_be_monthly_record_user, only: [:edit, :update, :destroy] 
+
   before_action :set_monthly_record, only: [:show, :edit, :update, :destroy]
 
   # GET /monthly_records
@@ -57,6 +59,14 @@ class MonthlyRecordsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_monthly_record_user
+    set_monthly_record
+    unless current_user == @monthly_record.user
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_monthly_record
       @monthly_record = MonthlyRecord.find(params[:id])

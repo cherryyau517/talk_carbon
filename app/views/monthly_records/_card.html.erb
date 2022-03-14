@@ -44,16 +44,20 @@
 
       <!-- Edit link monthly_record start -->
       <div class="col">
-        <%= link_to edit_monthly_record_url(monthly_record), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @monthly_record.user %>
+          <%= link_to edit_monthly_record_url(monthly_record), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link monthly_record end -->
 
       <!-- Delete link monthly_record start -->
       <div class="col">
-        <%= link_to monthly_record, method: :delete, data: { confirm: "Do you really want to delete this monthly_record?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @monthly_record.user %>
+          <%= link_to monthly_record, method: :delete, data: { confirm: "Do you really want to delete this monthly_record?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link monthly_record end -->
