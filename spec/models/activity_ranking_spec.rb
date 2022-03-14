@@ -12,6 +12,8 @@ RSpec.describe ActivityRanking, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:date) }
+
     it { should validate_presence_of(:month) }
 
     it { should validate_inclusion_of(:month).in_array([ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" ]) }
