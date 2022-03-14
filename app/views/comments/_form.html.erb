@@ -16,7 +16,7 @@
 
     <%= f.label :log_id %>
     <!-- Input for log_id start -->
-    <%= f.number_field :log_id, class: log_class, placeholder: "Enter log" %>
+    <%= f.collection_select :log_id, ActivitiesLog.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for log_id end -->
     <% if log_was_invalid %>
       <% comment.errors.full_messages_for(:log).each do |message| %>

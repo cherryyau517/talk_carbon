@@ -7,7 +7,7 @@
     <%= f.label :log_id %>
 
     <!-- Input for log_id start -->
-    <%= f.text_field :log_id, class: "form-control" %>
+    <%= f.collection_select :log_id, ActivitiesLog.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for log_id end -->
   </div>
   <!-- Label and input for log_id end -->
