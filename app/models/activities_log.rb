@@ -5,6 +5,8 @@ class ActivitiesLog < ApplicationRecord
 
   # Validations
 
+  validates :carbon_amount, :presence => true
+
   validates :date, :presence => true
 
   validates :user_id, :presence => true
