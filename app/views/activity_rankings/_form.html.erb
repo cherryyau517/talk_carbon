@@ -1,0 +1,135 @@
+<% was_validated = activity_ranking.errors.any? %>
+
+<%= form_with(model: activity_ranking, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = activity_ranking.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <!-- Input for user_id start -->
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <!-- Input for user_id end -->
+    <% if user_was_invalid %>
+      <% activity_ranking.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for user_id end -->
+  <!-- Label and input for activity_id start -->
+  <div class="form-group">
+    <% activity_class = "form-control" %>
+    <% activity_was_invalid = activity_ranking.errors.include?(:activity) %>
+
+    <% if was_validated %>
+      <% if activity_was_invalid %>
+        <% activity_class << " is-invalid" %>
+      <% else %>
+        <% activity_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :activity_id %>
+    <!-- Input for activity_id start -->
+    <%= f.number_field :activity_id, class: activity_class, placeholder: "Enter activity" %>
+    <!-- Input for activity_id end -->
+    <% if activity_was_invalid %>
+      <% activity_ranking.errors.full_messages_for(:activity).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for activity_id end -->
+  <!-- Label and input for date start -->
+  <div class="form-group">
+    <% date_class = "form-control" %>
+    <% date_was_invalid = activity_ranking.errors.include?(:date) %>
+
+    <% if was_validated %>
+      <% if date_was_invalid %>
+        <% date_class << " is-invalid" %>
+      <% else %>
+        <% date_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :date %>
+    <!-- Input for date start -->
+    <%= f.date_select :date, class: date_class, placeholder: "Enter date" %>
+    <!-- Input for date end -->
+    <% if date_was_invalid %>
+      <% activity_ranking.errors.full_messages_for(:date).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for date end -->
+  <!-- Label and input for month start -->
+  <div class="form-group">
+    <% month_class = "form-control" %>
+    <% month_was_invalid = activity_ranking.errors.include?(:month) %>
+
+    <% if was_validated %>
+      <% if month_was_invalid %>
+        <% month_class << " is-invalid" %>
+      <% else %>
+        <% month_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :month %>
+    <!-- Input for month start -->
+    <%= f.number_field :month, class: month_class, placeholder: "Enter month" %>
+    <!-- Input for month end -->
+    <% if month_was_invalid %>
+      <% activity_ranking.errors.full_messages_for(:month).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for month end -->
+  <!-- Label and input for carbon_amount start -->
+  <div class="form-group">
+    <% carbon_amount_class = "form-control" %>
+    <% carbon_amount_was_invalid = activity_ranking.errors.include?(:carbon_amount) %>
+
+    <% if was_validated %>
+      <% if carbon_amount_was_invalid %>
+        <% carbon_amount_class << " is-invalid" %>
+      <% else %>
+        <% carbon_amount_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :carbon_amount %>
+    <!-- Input for carbon_amount start -->
+    <%= f.text_field :carbon_amount, class: carbon_amount_class, placeholder: "Enter carbon amount" %>
+    <!-- Input for carbon_amount end -->
+    <% if carbon_amount_was_invalid %>
+      <% activity_ranking.errors.full_messages_for(:carbon_amount).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for carbon_amount end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
