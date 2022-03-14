@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :activity_types
   resources :activity_rankings
   resources :monthly_records
   resources :followings

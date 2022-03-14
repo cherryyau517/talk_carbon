@@ -1,0 +1,31 @@
+<% was_validated = activity_type.errors.any? %>
+
+<%= form_with(model: activity_type, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for activity_name start -->
+  <div class="form-group">
+    <% activity_name_class = "form-control" %>
+    <% activity_name_was_invalid = activity_type.errors.include?(:activity_name) %>
+
+    <% if was_validated %>
+      <% if activity_name_was_invalid %>
+        <% activity_name_class << " is-invalid" %>
+      <% else %>
+        <% activity_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :activity_name %>
+    <!-- Input for activity_name start -->
+    <%= f.text_field :activity_name, class: activity_name_class, placeholder: "Enter activity name" %>
+    <!-- Input for activity_name end -->
+    <% if activity_name_was_invalid %>
+      <% activity_type.errors.full_messages_for(:activity_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for activity_name end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
