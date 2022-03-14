@@ -1,6 +1,10 @@
 class ActivityType < ApplicationRecord
   # Direct associations
 
+  has_many   :activities_logs,
+             :foreign_key => "activity_id",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

@@ -4,6 +4,8 @@ RSpec.describe ActivityType, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:activities_logs) }
+
     end
 
     describe "InDirect Associations" do

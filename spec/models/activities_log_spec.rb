@@ -4,6 +4,8 @@ RSpec.describe ActivitiesLog, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:activity) }
+
     it { should have_many(:comments) }
 
     it { should belong_to(:user) }

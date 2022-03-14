@@ -1,6 +1,9 @@
 class ActivitiesLog < ApplicationRecord
   # Direct associations
 
+  belongs_to :activity,
+             :class_name => "ActivityType"
+
   has_many   :comments,
              :foreign_key => "log_id",
              :dependent => :destroy
