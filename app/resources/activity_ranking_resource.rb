@@ -5,8 +5,8 @@ class ActivityRankingResource < ApplicationResource
   attribute :user_id, :integer
   attribute :activity_id, :integer
   attribute :date, :date
-  attribute :month, :integer
   attribute :carbon_amount, :float
+  attribute :month, :integer
 
   # Direct associations
 

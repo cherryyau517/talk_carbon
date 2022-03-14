@@ -1,5 +1,5 @@
 ActiveAdmin.register ActivityRanking do
-  permit_params :user_id, :activity_id, :date, :month, :carbon_amount
+  permit_params :user_id, :activity_id, :date, :carbon_amount, :month
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

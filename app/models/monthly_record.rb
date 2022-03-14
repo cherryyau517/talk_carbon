@@ -12,8 +12,8 @@ class MonthlyRecord < ApplicationRecord
   validates :month, presence: true
 
   validates :month,
-            inclusion: { in: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",
-                              "12"] }
+            numericality: { less_than_or_equal_to: 12,
+                            greater_than_or_equal_to: 1 }
 
   validates :monthly_net_carbon, presence: true
 

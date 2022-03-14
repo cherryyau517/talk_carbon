@@ -1,10 +1,6 @@
 class Comment < ApplicationRecord
   # Direct associations
 
-  belongs_to :log,
-             class_name: "ActivitiesLog",
-             counter_cache: true
-
   belongs_to :commenter,
              class_name: "User",
              counter_cache: true
@@ -26,6 +22,6 @@ class Comment < ApplicationRecord
   # Scopes
 
   def to_s
-    log.to_s
+    log_id
   end
 end

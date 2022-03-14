@@ -2,11 +2,11 @@ require "rails_helper"
 
 RSpec.describe User, type: :model do
   describe "Direct Associations" do
+    it { should have_many(:activity_logs) }
+
     it { should have_many(:monthly_records) }
 
     it { should have_many(:activity_rankings) }
-
-    it { should have_many(:activities_logs) }
 
     it { should have_many(:comments) }
 
@@ -16,7 +16,6 @@ RSpec.describe User, type: :model do
   end
 
   describe "InDirect Associations" do
-    it { should have_many(:logs) }
   end
 
   describe "Validations" do

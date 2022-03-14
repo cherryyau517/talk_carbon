@@ -8,11 +8,11 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :activity_logs
+
   has_many   :monthly_records
 
   has_many   :activity_rankings
-
-  has_many   :activities_logs
 
   has_many   :comments,
              foreign_key: :commenter_id
@@ -24,7 +24,4 @@ class UserResource < ApplicationResource
              foreign_key: :follower_id
 
   # Indirect associations
-
-  many_to_many :logs,
-               resource: ActivitiesLogResource
 end

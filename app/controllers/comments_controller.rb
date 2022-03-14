@@ -6,8 +6,7 @@ class CommentsController < ApplicationController
 
   def index
     @q = Comment.ransack(params[:q])
-    @comments = @q.result(distinct: true).includes(:commenter,
-                                                   :log).page(params[:page]).per(10)
+    @comments = @q.result(distinct: true).includes(:commenter).page(params[:page]).per(10)
   end
 
   def show; end

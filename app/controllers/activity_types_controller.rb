@@ -3,13 +3,13 @@ class ActivityTypesController < ApplicationController
 
   def index
     @q = ActivityType.ransack(params[:q])
-    @activity_types = @q.result(distinct: true).includes(:activities_logs,
-                                                         :activity_rankings).page(params[:page]).per(10)
+    @activity_types = @q.result(distinct: true).includes(:activity_rankings,
+                                                         :activity_logs).page(params[:page]).per(10)
   end
 
   def show
+    @activity_log = ActivityLog.new
     @activity_ranking = ActivityRanking.new
-    @activities_log = ActivitiesLog.new
   end
 
   def new

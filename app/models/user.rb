@@ -2,13 +2,13 @@ class User < ApplicationRecord
   include JwtToken
   # Direct associations
 
+  has_many   :activity_logs,
+             dependent: :destroy
+
   has_many   :monthly_records,
              dependent: :destroy
 
   has_many   :activity_rankings,
-             dependent: :destroy
-
-  has_many   :activities_logs,
              dependent: :destroy
 
   has_many   :comments,
@@ -24,10 +24,6 @@ class User < ApplicationRecord
              dependent: :destroy
 
   # Indirect associations
-
-  has_many   :logs,
-             through: :comments,
-             source: :log
 
   # Validations
 

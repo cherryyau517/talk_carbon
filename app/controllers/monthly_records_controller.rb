@@ -66,7 +66,7 @@ class MonthlyRecordsController < ApplicationController
   end
 
   def monthly_record_params
-    params.require(:monthly_record).permit(:user_id, :date, :month,
-                                           :monthly_net_carbon, :offset_solution, :offset_carbon_amount)
+    params.require(:monthly_record).permit(:user_id, :date,
+                                           :monthly_net_carbon, :offset_solution, :offset_carbon_amount, :month)
   end
 end

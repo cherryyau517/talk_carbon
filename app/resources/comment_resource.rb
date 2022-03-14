@@ -10,9 +10,6 @@ class CommentResource < ApplicationResource
 
   # Direct associations
 
-  belongs_to :log,
-             resource: ActivitiesLogResource
-
   belongs_to :commenter,
              resource: UserResource
 

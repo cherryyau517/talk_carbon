@@ -6,11 +6,7 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Log</dt>
-      <dd>
-        <% if @comment.log.present? %>
-          <%= link_to comment.log, comment.log %>
-        <% end %>
-      </dd>
+      <dd><%= comment.log_id %></dd>
 
       <dt>Commenter</dt>
       <dd>
