@@ -1,4 +1,6 @@
 class FollowingsController < ApplicationController
+  before_action :current_user_must_be_following_follower, only: [:edit, :update, :destroy] 
+
   before_action :set_following, only: [:show, :edit, :update, :destroy]
 
   # GET /followings
@@ -57,6 +59,14 @@ class FollowingsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_following_follower
+    set_following
+    unless current_user == @following.follower
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_following
       @following = Following.find(params[:id])
