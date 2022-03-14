@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= activity_ranking.user_id %></dd>
+      <dd>
+        <% if @activity_ranking.user.present? %>
+          <%= link_to activity_ranking.user, activity_ranking.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Activity</dt>
       <!-- Display activity_id start -->
-      <dd><%= activity_ranking.activity_id %></dd>
+      <dd>
+        <% if @activity_ranking.activity.present? %>
+          <%= link_to activity_ranking.activity, activity_ranking.activity %>
+        <% end %>
+      </dd>
       <!-- Display activity_id end -->
 
       <dt>Date</dt>

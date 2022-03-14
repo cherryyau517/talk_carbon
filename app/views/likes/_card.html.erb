@@ -12,7 +12,11 @@
 
       <dt>Liker</dt>
       <!-- Display liker_id start -->
-      <dd><%= like.liker_id %></dd>
+      <dd>
+        <% if @like.liker.present? %>
+          <%= link_to like.liker, like.liker %>
+        <% end %>
+      </dd>
       <!-- Display liker_id end -->
 
     </dl>

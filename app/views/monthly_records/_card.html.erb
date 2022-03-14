@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= monthly_record.user_id %></dd>
+      <dd>
+        <% if @monthly_record.user.present? %>
+          <%= link_to monthly_record.user, monthly_record.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Date</dt>
