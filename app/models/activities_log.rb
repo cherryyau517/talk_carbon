@@ -13,6 +13,10 @@ class ActivitiesLog < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :commenters,
+             :through => :comments,
+             :source => :commenter
+
   # Validations
 
   validates :activity_id, :presence => true

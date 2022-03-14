@@ -24,6 +24,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :logs,
+             :through => :comments,
+             :source => :log
+
   # Validations
 
   validates :user_name, :presence => true
