@@ -1,6 +1,10 @@
 class ActivitiesLog < ApplicationRecord
   # Direct associations
 
+  has_many   :comments,
+             :foreign_key => "log_id",
+             :dependent => :destroy
+
   belongs_to :user,
              :counter_cache => true
 
