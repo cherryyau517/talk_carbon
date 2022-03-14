@@ -13,7 +13,7 @@ class Api::V1::ActivityRankingsController < Api::V1::GraphitiController
     activity_ranking = ActivityRankingResource.build(params)
 
     if activity_ranking.save
-      render jsonapi: activity_ranking, status: 201
+      render jsonapi: activity_ranking, status: :created
     else
       render jsonapi_errors: activity_ranking
     end
@@ -33,7 +33,7 @@ class Api::V1::ActivityRankingsController < Api::V1::GraphitiController
     activity_ranking = ActivityRankingResource.find(params)
 
     if activity_ranking.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: activity_ranking
     end

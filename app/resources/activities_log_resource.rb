@@ -24,5 +24,4 @@ class ActivitiesLogResource < ApplicationResource
 
   many_to_many :commenters,
                resource: UserResource
-
 end

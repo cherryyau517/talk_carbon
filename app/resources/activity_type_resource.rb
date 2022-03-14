@@ -13,5 +13,4 @@ class ActivityTypeResource < ApplicationResource
              foreign_key: :activity_id
 
   # Indirect associations
-
 end

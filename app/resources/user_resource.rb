@@ -27,5 +27,4 @@ class UserResource < ApplicationResource
 
   many_to_many :logs,
                resource: ActivitiesLogResource
-
 end

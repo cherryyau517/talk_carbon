@@ -1,25 +1,19 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe ActivitiesLog, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should belong_to(:activity) }
 
     it { should have_many(:comments) }
 
     it { should belong_to(:user) }
+  end
 
-    end
-
-    describe "InDirect Associations" do
-
+  describe "InDirect Associations" do
     it { should have_many(:commenters) }
+  end
 
-    end
-
-    describe "Validations" do
-
+  describe "Validations" do
     it { should validate_presence_of(:activity_id) }
 
     it { should validate_presence_of(:activity_remarks) }
@@ -31,6 +25,5 @@ RSpec.describe ActivitiesLog, type: :model do
     it { should validate_presence_of(:date) }
 
     it { should validate_presence_of(:user_id) }
-
-    end
+  end
 end

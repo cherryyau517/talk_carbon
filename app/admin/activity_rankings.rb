@@ -1,6 +1,5 @@
 ActiveAdmin.register ActivityRanking do
-
- permit_params :user_id, :activity_id, :date, :month, :carbon_amount
+  permit_params :user_id, :activity_id, :date, :month, :carbon_amount
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +13,4 @@ ActiveAdmin.register ActivityRanking do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

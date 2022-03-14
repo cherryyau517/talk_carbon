@@ -13,7 +13,7 @@ class Api::V1::ActivityTypesController < Api::V1::GraphitiController
     activity_type = ActivityTypeResource.build(params)
 
     if activity_type.save
-      render jsonapi: activity_type, status: 201
+      render jsonapi: activity_type, status: :created
     else
       render jsonapi_errors: activity_type
     end
@@ -33,7 +33,7 @@ class Api::V1::ActivityTypesController < Api::V1::GraphitiController
     activity_type = ActivityTypeResource.find(params)
 
     if activity_type.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: activity_type
     end

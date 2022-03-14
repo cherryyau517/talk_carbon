@@ -13,7 +13,7 @@ class Api::V1::MonthlyRecordsController < Api::V1::GraphitiController
     monthly_record = MonthlyRecordResource.build(params)
 
     if monthly_record.save
-      render jsonapi: monthly_record, status: 201
+      render jsonapi: monthly_record, status: :created
     else
       render jsonapi_errors: monthly_record
     end
@@ -33,7 +33,7 @@ class Api::V1::MonthlyRecordsController < Api::V1::GraphitiController
     monthly_record = MonthlyRecordResource.find(params)
 
     if monthly_record.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: monthly_record
     end
