@@ -1,0 +1,46 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Following #<%= following.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Follower</dt>
+      <!-- Display follower_id start -->
+      <dd><%= following.follower_id %></dd>
+      <!-- Display follower_id end -->
+
+      <dt>Followed</dt>
+      <!-- Display followed_id start -->
+      <dd><%= following.followed_id %></dd>
+      <!-- Display followed_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back following, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link following start -->
+      <div class="col">
+        <%= link_to edit_following_url(following), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link following end -->
+
+      <!-- Delete link following start -->
+      <div class="col">
+        <%= link_to following, method: :delete, data: { confirm: "Do you really want to delete this following?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link following end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(following.updated_at) %> ago
+  </div>
+</div>
