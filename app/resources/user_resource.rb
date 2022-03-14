@@ -8,6 +8,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :activities_logs
+
   has_many   :comments,
              foreign_key: :commenter_id
 
