@@ -1,0 +1,161 @@
+<% was_validated = activity_log.errors.any? %>
+
+<%= form_with(model: activity_log, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <div class="form-group">
+    <% activity_name_class = "form-control" %>
+    <% activity_name_was_invalid = activity_log.errors.include?(:activity_name) %>
+
+    <% if was_validated %>
+      <% if activity_name_was_invalid %>
+        <% activity_name_class << " is-invalid" %>
+      <% else %>
+        <% activity_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :activity_name %>
+    <%= f.text_field :activity_name, class: activity_name_class, placeholder: "Enter activity name" %>
+    <% if activity_name_was_invalid %>
+      <% activity_log.errors.full_messages_for(:activity_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% activity_type_class = "form-control" %>
+    <% activity_type_was_invalid = activity_log.errors.include?(:activity_type) %>
+
+    <% if was_validated %>
+      <% if activity_type_was_invalid %>
+        <% activity_type_class << " is-invalid" %>
+      <% else %>
+        <% activity_type_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :activity_type_id %>
+    <%= f.collection_select :activity_type_id, ActivityType.all, :id, :to_s, {}, class: "form-control" %>
+    <% if activity_type_was_invalid %>
+      <% activity_log.errors.full_messages_for(:activity_type).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% date_class = "form-control" %>
+    <% date_was_invalid = activity_log.errors.include?(:date) %>
+
+    <% if was_validated %>
+      <% if date_was_invalid %>
+        <% date_class << " is-invalid" %>
+      <% else %>
+        <% date_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :date %>
+    <%= f.date_select :date, class: date_class, placeholder: "Enter date" %>
+    <% if date_was_invalid %>
+      <% activity_log.errors.full_messages_for(:date).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% time_class = "form-control" %>
+    <% time_was_invalid = activity_log.errors.include?(:time) %>
+
+    <% if was_validated %>
+      <% if time_was_invalid %>
+        <% time_class << " is-invalid" %>
+      <% else %>
+        <% time_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :time %>
+    <%= f.time_select :time, class: time_class, placeholder: "Enter time" %>
+    <% if time_was_invalid %>
+      <% activity_log.errors.full_messages_for(:time).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% activity_remark_class = "form-control" %>
+    <% activity_remark_was_invalid = activity_log.errors.include?(:activity_remark) %>
+
+    <% if was_validated %>
+      <% if activity_remark_was_invalid %>
+        <% activity_remark_class << " is-invalid" %>
+      <% else %>
+        <% activity_remark_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :activity_remarks %>
+    <%= f.text_area :activity_remarks, class: activity_remark_class, placeholder: "Enter activity remark" %>
+    <% if activity_remark_was_invalid %>
+      <% activity_log.errors.full_messages_for(:activity_remark).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-check">
+    <% addition_class = "form-check-input" %>
+    <% addition_was_invalid = activity_log.errors.include?(:addition) %>
+
+    <% if was_validated %>
+      <% if addition_was_invalid %>
+        <% addition_class << " is-invalid" %>
+      <% else %>
+        <% addition_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :addition, class: "form-check-label" do %>
+      <%= f.check_box :addition, class: addition_class %> Addition
+    <% end %>
+    <% if addition_was_invalid %>
+      <% activity_log.errors.full_messages_for(:addition).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% carbon_amount_class = "form-control" %>
+    <% carbon_amount_was_invalid = activity_log.errors.include?(:carbon_amount) %>
+
+    <% if was_validated %>
+      <% if carbon_amount_was_invalid %>
+        <% carbon_amount_class << " is-invalid" %>
+      <% else %>
+        <% carbon_amount_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :carbon_amount %>
+    <%= f.text_field :carbon_amount, class: carbon_amount_class, placeholder: "Enter carbon amount" %>
+    <% if carbon_amount_was_invalid %>
+      <% activity_log.errors.full_messages_for(:carbon_amount).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

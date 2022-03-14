@@ -57,6 +57,6 @@ class ActivityRankingsController < ApplicationController
 
   def activity_ranking_params
     params.require(:activity_ranking).permit(:user_id, :activity_id, :date,
-                                             :month, :carbon_amount)
+                                             :carbon_amount, :month)
   end
 end

@@ -68,28 +68,6 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% month_class = "form-control" %>
-    <% month_was_invalid = activity_ranking.errors.include?(:month) %>
-
-    <% if was_validated %>
-      <% if month_was_invalid %>
-        <% month_class << " is-invalid" %>
-      <% else %>
-        <% month_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :month %>
-    <%= f.number_field :month, class: month_class, placeholder: "Enter month" %>
-    <% if month_was_invalid %>
-      <% activity_ranking.errors.full_messages_for(:month).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="form-group">
     <% carbon_amount_class = "form-control" %>
     <% carbon_amount_was_invalid = activity_ranking.errors.include?(:carbon_amount) %>
 
@@ -105,6 +83,28 @@
     <%= f.text_field :carbon_amount, class: carbon_amount_class, placeholder: "Enter carbon amount" %>
     <% if carbon_amount_was_invalid %>
       <% activity_ranking.errors.full_messages_for(:carbon_amount).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% month_class = "form-control" %>
+    <% month_was_invalid = activity_ranking.errors.include?(:month) %>
+
+    <% if was_validated %>
+      <% if month_was_invalid %>
+        <% month_class << " is-invalid" %>
+      <% else %>
+        <% month_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :month %>
+    <%= f.number_field :month, class: month_class, placeholder: "Enter month" %>
+    <% if month_was_invalid %>
+      <% activity_ranking.errors.full_messages_for(:month).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>

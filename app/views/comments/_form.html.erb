@@ -14,7 +14,7 @@
     <% end %>
 
     <%= f.label :log_id %>
-    <%= f.collection_select :log_id, ActivitiesLog.all, :id, :to_s, {}, class: "form-control" %>
+    <%= f.number_field :log_id, class: log_class, placeholder: "Enter log" %>
     <% if log_was_invalid %>
       <% comment.errors.full_messages_for(:log).each do |message| %>
         <div class="invalid-feedback d-flex">

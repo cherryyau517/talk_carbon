@@ -3,7 +3,7 @@
   <div class="form-group">
     <%= f.label :log_id %>
 
-    <%= f.collection_select :log_id, ActivitiesLog.all, :id, :to_s, {}, class: "form-control" %>
+    <%= f.text_field :log_id, class: "form-control" %>
   </div>
 
   <%= f.hidden_field :commenter_id, value: @user.id %>

@@ -2,18 +2,6 @@
   <p class="lead">Narrow results:</p>
 
   <div class="form-group">
-    <%= f.label :carbon_amount, "Carbon amount" %>
-    <div class="row">
-      <div class='col-md-6 mb-1'>
-        <%= f.text_field :carbon_amount_gteq, :class => "form-control", :placeholder => "Carbon amount greater than or equal to" %>
-      </div>
-      <div class='col-md-6'>
-        <%= f.text_field :carbon_amount_lteq, :class => "form-control", :placeholder => "Carbon amount less than or equal to" %>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group">
     <%= f.label :month, "Month" %>
     <div class="row">
       <div class='col-md-6 mb-1'>
@@ -21,6 +9,18 @@
       </div>
       <div class='col-md-6'>
         <%= f.text_field :month_lteq, :class => "form-control", :placeholder => "Month less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :carbon_amount, "Carbon amount" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :carbon_amount_gteq, :class => "form-control", :placeholder => "Carbon amount greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :carbon_amount_lteq, :class => "form-control", :placeholder => "Carbon amount less than or equal to" %>
       </div>
     </div>
   </div>

@@ -14,8 +14,7 @@ RSpec.describe MonthlyRecord, type: :model do
     it { should validate_presence_of(:month) }
 
     it {
-      should validate_inclusion_of(:month).in_array(["1", "2", "3", "4", "5", "6",
-                                                     "7", "8", "9", "10", "11", "12"])
+      should validate_numericality_of(:month).is_less_than(12).is_greater_than_or_equal_to(1)
     }
 
     it { should validate_presence_of(:monthly_net_carbon) }

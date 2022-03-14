@@ -6,9 +6,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @activity_log = ActivityLog.new
     @monthly_record = MonthlyRecord.new
     @activity_ranking = ActivityRanking.new
-    @activities_log = ActivitiesLog.new
     @comment = Comment.new
     @like = Like.new
     @following = Following.new
