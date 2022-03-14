@@ -5,7 +5,7 @@ class ActivitiesLogsController < ApplicationController
 
   # GET /activities_logs
   def index
-    @activities_logs = ActivitiesLog.all
+    @activities_logs = ActivitiesLog.page(params[:page]).per(10)
   end
 
   # GET /activities_logs/1

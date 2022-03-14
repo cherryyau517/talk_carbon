@@ -3,7 +3,7 @@ class ActivityRankingsController < ApplicationController
 
   # GET /activity_rankings
   def index
-    @activity_rankings = ActivityRanking.all
+    @activity_rankings = ActivityRanking.page(params[:page]).per(10)
   end
 
   # GET /activity_rankings/1

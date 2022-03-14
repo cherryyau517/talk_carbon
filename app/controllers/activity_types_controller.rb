@@ -3,7 +3,7 @@ class ActivityTypesController < ApplicationController
 
   # GET /activity_types
   def index
-    @activity_types = ActivityType.all
+    @activity_types = ActivityType.page(params[:page]).per(10)
   end
 
   # GET /activity_types/1

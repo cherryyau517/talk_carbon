@@ -5,7 +5,7 @@ class MonthlyRecordsController < ApplicationController
 
   # GET /monthly_records
   def index
-    @monthly_records = MonthlyRecord.all
+    @monthly_records = MonthlyRecord.page(params[:page]).per(10)
   end
 
   # GET /monthly_records/1
