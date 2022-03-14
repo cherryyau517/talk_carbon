@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "activities_logs#index"
   resources :activity_types
   resources :activity_rankings
   resources :monthly_records
