@@ -5,6 +5,8 @@ class Comment < ApplicationRecord
 
   # Validations
 
+  validates :time, :presence => true
+
   # Scopes
 
   def to_s
