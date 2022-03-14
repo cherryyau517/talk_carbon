@@ -28,30 +28,9 @@
   </div>
   <!-- Label and input for log_id end -->
   <!-- Label and input for liker_id start -->
-  <div class="form-group">
-    <% liker_class = "form-control" %>
-    <% liker_was_invalid = like.errors.include?(:liker) %>
-
-    <% if was_validated %>
-      <% if liker_was_invalid %>
-        <% liker_class << " is-invalid" %>
-      <% else %>
-        <% liker_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :liker_id %>
-    <!-- Input for liker_id start -->
-    <%= f.collection_select :liker_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for liker_id end -->
-    <% if liker_was_invalid %>
-      <% like.errors.full_messages_for(:liker).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <!-- Input for "liker_id" start -->
+  <%= f.hidden_field :liker_id, value: current_user.id %>
+  <!-- Input for "liker_id" end -->
   <!-- Label and input for liker_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
