@@ -5,6 +5,8 @@ class ActivityType < ApplicationRecord
 
   # Validations
 
+  validates :activity_name, :presence => true
+
   # Scopes
 
   def to_s
