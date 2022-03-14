@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Activity Rankings
+
+    <a data-toggle="collapse" href="#activity_type_activity_rankings_new_form">
+      Add activity ranking
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @activity_type.activity_rankings.each do |activity_ranking| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to activity_ranking, activity_ranking %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to activity_ranking, method: :delete, data: { confirm: "Do you really want to delete this activity_ranking" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="activity_type_activity_rankings_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

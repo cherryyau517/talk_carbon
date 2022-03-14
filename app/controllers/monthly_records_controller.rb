@@ -42,8 +42,14 @@ class MonthlyRecordsController < ApplicationController
   # DELETE /monthly_records/1
   def destroy
     @monthly_record.destroy
-    redirect_to monthly_records_url, notice: 'Monthly record was successfully destroyed.'
+    message = "MonthlyRecord was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to monthly_records_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Monthly Records
+
+    <a data-toggle="collapse" href="#user_monthly_records_new_form">
+      Add monthly record
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.monthly_records.each do |monthly_record| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to monthly_record, monthly_record %>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="user_monthly_records_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

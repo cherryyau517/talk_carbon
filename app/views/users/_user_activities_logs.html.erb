@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Activities Logs
+
+    <a data-toggle="collapse" href="#user_activities_logs_new_form">
+      Add activities log
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.activities_logs.each do |activities_log| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to activities_log, activities_log %>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="user_activities_logs_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>
