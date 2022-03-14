@@ -4,27 +4,22 @@ class ActivitiesLogsController < ApplicationController
 
   before_action :set_activities_log, only: %i[show edit update destroy]
 
-  # GET /activities_logs
   def index
     @q = ActivitiesLog.ransack(params[:q])
     @activities_logs = @q.result(distinct: true).includes(:user, :comments,
                                                           :activity, :commenters).page(params[:page]).per(10)
   end
 
-  # GET /activities_logs/1
   def show
     @comment = Comment.new
   end
 
-  # GET /activities_logs/new
   def new
     @activities_log = ActivitiesLog.new
   end
 
-  # GET /activities_logs/1/edit
   def edit; end
 
-  # POST /activities_logs
   def create
     @activities_log = ActivitiesLog.new(activities_log_params)
 
@@ -40,7 +35,6 @@ class ActivitiesLogsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /activities_logs/1
   def update
     if @activities_log.update(activities_log_params)
       redirect_to @activities_log,
@@ -50,7 +44,6 @@ class ActivitiesLogsController < ApplicationController
     end
   end
 
-  # DELETE /activities_logs/1
   def destroy
     @activities_log.destroy
     message = "ActivitiesLog was successfully deleted."
@@ -71,12 +64,10 @@ class ActivitiesLogsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_activities_log
     @activities_log = ActivitiesLog.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def activities_log_params
     params.require(:activities_log).permit(:activity_id, :date, :time,
                                            :activity_remarks, :addition, :carbon_amount, :user_id)

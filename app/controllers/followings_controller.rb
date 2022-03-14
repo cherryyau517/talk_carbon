@@ -4,24 +4,19 @@ class FollowingsController < ApplicationController
 
   before_action :set_following, only: %i[show edit update destroy]
 
-  # GET /followings
   def index
     @q = Following.ransack(params[:q])
     @followings = @q.result(distinct: true).includes(:follower).page(params[:page]).per(10)
   end
 
-  # GET /followings/1
   def show; end
 
-  # GET /followings/new
   def new
     @following = Following.new
   end
 
-  # GET /followings/1/edit
   def edit; end
 
-  # POST /followings
   def create
     @following = Following.new(following_params)
 
@@ -37,7 +32,6 @@ class FollowingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /followings/1
   def update
     if @following.update(following_params)
       redirect_to @following, notice: "Following was successfully updated."
@@ -46,7 +40,6 @@ class FollowingsController < ApplicationController
     end
   end
 
-  # DELETE /followings/1
   def destroy
     @following.destroy
     message = "Following was successfully deleted."
@@ -67,12 +60,10 @@ class FollowingsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_following
     @following = Following.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def following_params
     params.require(:following).permit(:follower_id, :followed_id)
   end

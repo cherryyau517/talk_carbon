@@ -4,24 +4,19 @@ class MonthlyRecordsController < ApplicationController
 
   before_action :set_monthly_record, only: %i[show edit update destroy]
 
-  # GET /monthly_records
   def index
     @q = MonthlyRecord.ransack(params[:q])
     @monthly_records = @q.result(distinct: true).includes(:user).page(params[:page]).per(10)
   end
 
-  # GET /monthly_records/1
   def show; end
 
-  # GET /monthly_records/new
   def new
     @monthly_record = MonthlyRecord.new
   end
 
-  # GET /monthly_records/1/edit
   def edit; end
 
-  # POST /monthly_records
   def create
     @monthly_record = MonthlyRecord.new(monthly_record_params)
 
@@ -37,7 +32,6 @@ class MonthlyRecordsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /monthly_records/1
   def update
     if @monthly_record.update(monthly_record_params)
       redirect_to @monthly_record,
@@ -47,7 +41,6 @@ class MonthlyRecordsController < ApplicationController
     end
   end
 
-  # DELETE /monthly_records/1
   def destroy
     @monthly_record.destroy
     message = "MonthlyRecord was successfully deleted."
@@ -68,12 +61,10 @@ class MonthlyRecordsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_monthly_record
     @monthly_record = MonthlyRecord.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def monthly_record_params
     params.require(:monthly_record).permit(:user_id, :date, :month,
                                            :monthly_net_carbon, :offset_solution, :offset_carbon_amount)
