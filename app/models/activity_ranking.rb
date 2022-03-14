@@ -5,6 +5,8 @@ class ActivityRanking < ApplicationRecord
 
   # Validations
 
+  validates :carbon_amount, :presence => true
+
   validates :date, :presence => true
 
   validates :month, :presence => true
