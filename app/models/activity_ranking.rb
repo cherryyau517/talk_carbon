@@ -1,6 +1,9 @@
 class ActivityRanking < ApplicationRecord
   # Direct associations
 
+  belongs_to :activity,
+             :class_name => "ActivityType"
+
   belongs_to :user,
              :counter_cache => true
 

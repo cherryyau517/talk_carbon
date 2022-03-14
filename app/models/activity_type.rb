@@ -1,6 +1,10 @@
 class ActivityType < ApplicationRecord
   # Direct associations
 
+  has_many   :activity_rankings,
+             :foreign_key => "activity_id",
+             :dependent => :destroy
+
   has_many   :activities_logs,
              :foreign_key => "activity_id",
              :dependent => :destroy
