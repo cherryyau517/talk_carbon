@@ -5,7 +5,8 @@ class MonthlyRecordsController < ApplicationController
 
   # GET /monthly_records
   def index
-    @monthly_records = MonthlyRecord.page(params[:page]).per(10)
+    @q = MonthlyRecord.ransack(params[:q])
+    @monthly_records = @q.result(:distinct => true).includes(:user).page(params[:page]).per(10)
   end
 
   # GET /monthly_records/1

@@ -3,7 +3,8 @@ class ActivityRankingsController < ApplicationController
 
   # GET /activity_rankings
   def index
-    @activity_rankings = ActivityRanking.page(params[:page]).per(10)
+    @q = ActivityRanking.ransack(params[:q])
+    @activity_rankings = @q.result(:distinct => true).includes(:user, :activity).page(params[:page]).per(10)
   end
 
   # GET /activity_rankings/1

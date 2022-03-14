@@ -3,7 +3,8 @@ class ActivityTypesController < ApplicationController
 
   # GET /activity_types
   def index
-    @activity_types = ActivityType.page(params[:page]).per(10)
+    @q = ActivityType.ransack(params[:q])
+    @activity_types = @q.result(:distinct => true).includes(:activities_logs, :activity_rankings).page(params[:page]).per(10)
   end
 
   # GET /activity_types/1

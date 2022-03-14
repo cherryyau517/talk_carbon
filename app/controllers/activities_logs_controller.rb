@@ -5,7 +5,8 @@ class ActivitiesLogsController < ApplicationController
 
   # GET /activities_logs
   def index
-    @activities_logs = ActivitiesLog.page(params[:page]).per(10)
+    @q = ActivitiesLog.ransack(params[:q])
+    @activities_logs = @q.result(:distinct => true).includes(:user, :comments, :activity, :commenters).page(params[:page]).per(10)
   end
 
   # GET /activities_logs/1
