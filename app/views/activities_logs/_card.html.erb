@@ -49,16 +49,20 @@
 
       <!-- Edit link activities_log start -->
       <div class="col">
-        <%= link_to edit_activities_log_url(activities_log), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @activities_log.user %>
+          <%= link_to edit_activities_log_url(activities_log), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link activities_log end -->
 
       <!-- Delete link activities_log start -->
       <div class="col">
-        <%= link_to activities_log, method: :delete, data: { confirm: "Do you really want to delete this activities_log?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @activities_log.user %>
+          <%= link_to activities_log, method: :delete, data: { confirm: "Do you really want to delete this activities_log?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link activities_log end -->

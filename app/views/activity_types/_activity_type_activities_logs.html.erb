@@ -15,8 +15,10 @@
         <!-- Show link end -->
 
         <!-- Delete link start -->
-        <%= link_to activities_log, method: :delete, data: { confirm: "Do you really want to delete this activities_log" } do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == activities_log.user %>
+          <%= link_to activities_log, method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
         <!-- Delete link end -->
 
