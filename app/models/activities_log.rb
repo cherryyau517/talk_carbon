@@ -5,6 +5,8 @@ class ActivitiesLog < ApplicationRecord
 
   # Validations
 
+  validates :activity_id, :presence => true
+
   validates :activity_remarks, :presence => true
 
   validates :addition, :presence => true
