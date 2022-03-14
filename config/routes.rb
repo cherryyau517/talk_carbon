@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :monthly_records
   resources :followings
   resources :comments
   resources :likes
