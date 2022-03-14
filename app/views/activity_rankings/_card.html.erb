@@ -6,37 +6,27 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @activity_ranking.user.present? %>
           <%= link_to activity_ranking.user, activity_ranking.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Activity</dt>
-      <!-- Display activity_id start -->
       <dd>
         <% if @activity_ranking.activity.present? %>
           <%= link_to activity_ranking.activity, activity_ranking.activity %>
         <% end %>
       </dd>
-      <!-- Display activity_id end -->
 
       <dt>Date</dt>
-      <!-- Display date start -->
       <dd><%= activity_ranking.date %></dd>
-      <!-- Display date end -->
 
       <dt>Month</dt>
-      <!-- Display month start -->
       <dd><%= activity_ranking.month %></dd>
-      <!-- Display month end -->
 
       <dt>Carbon amount</dt>
-      <!-- Display carbon_amount start -->
       <dd><%= activity_ranking.carbon_amount %></dd>
-      <!-- Display carbon_amount end -->
 
     </dl>
 
@@ -45,21 +35,17 @@
         <%= link_to_show_or_back activity_ranking, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link activity_ranking start -->
       <div class="col">
         <%= link_to edit_activity_ranking_url(activity_ranking), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link activity_ranking end -->
 
-      <!-- Delete link activity_ranking start -->
       <div class="col">
         <%= link_to activity_ranking, method: :delete, data: { confirm: "Do you really want to delete this activity_ranking?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link activity_ranking end -->
     </div>
   </div>
 

@@ -6,38 +6,26 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @monthly_record.user.present? %>
           <%= link_to monthly_record.user, monthly_record.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Date</dt>
-      <!-- Display date start -->
       <dd><%= monthly_record.date %></dd>
-      <!-- Display date end -->
 
       <dt>Month</dt>
-      <!-- Display month start -->
       <dd><%= monthly_record.month %></dd>
-      <!-- Display month end -->
 
       <dt>Monthly net carbon</dt>
-      <!-- Display monthly_net_carbon start -->
       <dd><%= monthly_record.monthly_net_carbon %></dd>
-      <!-- Display monthly_net_carbon end -->
 
       <dt>Offset solution</dt>
-      <!-- Display offset_solution start -->
       <dd><%= monthly_record.offset_solution %></dd>
-      <!-- Display offset_solution end -->
 
       <dt>Offset carbon amount</dt>
-      <!-- Display offset_carbon_amount start -->
       <dd><%= monthly_record.offset_carbon_amount %></dd>
-      <!-- Display offset_carbon_amount end -->
 
     </dl>
 
@@ -46,7 +34,6 @@
         <%= link_to_show_or_back monthly_record, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link monthly_record start -->
       <div class="col">
         <% if current_user == @monthly_record.user %>
           <%= link_to edit_monthly_record_url(monthly_record), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -54,9 +41,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link monthly_record end -->
 
-      <!-- Delete link monthly_record start -->
       <div class="col">
         <% if current_user == @monthly_record.user %>
           <%= link_to monthly_record, method: :delete, data: { confirm: "Do you really want to delete this monthly_record?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -64,7 +49,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link monthly_record end -->
     </div>
   </div>
 

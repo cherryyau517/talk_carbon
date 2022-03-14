@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @activity_type.activities_logs.each do |activities_log| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to activities_log, activities_log %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == activities_log.user %>
           <%= link_to activities_log, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="activity_type_activities_logs_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "activity_types/activity_type_activities_logs_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

@@ -6,47 +6,33 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Activity</dt>
-      <!-- Display activity_id start -->
       <dd>
         <% if @activities_log.activity.present? %>
           <%= link_to activities_log.activity, activities_log.activity %>
         <% end %>
       </dd>
-      <!-- Display activity_id end -->
 
       <dt>Date</dt>
-      <!-- Display date start -->
       <dd><%= activities_log.date %></dd>
-      <!-- Display date end -->
 
       <dt>Time</dt>
-      <!-- Display time start -->
       <dd><%= activities_log.time %></dd>
-      <!-- Display time end -->
 
       <dt>Activity remarks</dt>
-      <!-- Display activity_remarks start -->
       <dd><%= activities_log.activity_remarks %></dd>
-      <!-- Display activity_remarks end -->
 
       <dt>Addition</dt>
-      <!-- Display addition start -->
       <dd><%= activities_log.addition %></dd>
-      <!-- Display addition end -->
 
       <dt>Carbon amount</dt>
-      <!-- Display carbon_amount start -->
       <dd><%= activities_log.carbon_amount %></dd>
-      <!-- Display carbon_amount end -->
 
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @activities_log.user.present? %>
           <%= link_to activities_log.user, activities_log.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
     </dl>
 
@@ -55,7 +41,6 @@
         <%= link_to_show_or_back activities_log, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link activities_log start -->
       <div class="col">
         <% if current_user == @activities_log.user %>
           <%= link_to edit_activities_log_url(activities_log), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -63,9 +48,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link activities_log end -->
 
-      <!-- Delete link activities_log start -->
       <div class="col">
         <% if current_user == @activities_log.user %>
           <%= link_to activities_log, method: :delete, data: { confirm: "Do you really want to delete this activities_log?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -73,7 +56,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link activities_log end -->
     </div>
   </div>
 

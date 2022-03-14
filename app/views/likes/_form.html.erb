@@ -1,7 +1,6 @@
 <% was_validated = like.errors.any? %>
 
 <%= form_with(model: like, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for log_id start -->
   <div class="form-group">
     <% log_class = "form-control" %>
     <% log_was_invalid = like.errors.include?(:log) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :log_id %>
-    <!-- Input for log_id start -->
     <%= f.number_field :log_id, class: log_class, placeholder: "Enter log" %>
-    <!-- Input for log_id end -->
     <% if log_was_invalid %>
       <% like.errors.full_messages_for(:log).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,11 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for log_id end -->
-  <!-- Label and input for liker_id start -->
-  <!-- Input for "liker_id" start -->
   <%= f.hidden_field :liker_id, value: current_user.id %>
-  <!-- Input for "liker_id" end -->
-  <!-- Label and input for liker_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

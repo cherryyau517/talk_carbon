@@ -1,22 +1,12 @@
-<!-- Form like start -->
 <%= form_with(model: @like, local: true) do |f| %>
-<!-- Form like end -->
 
-  <!-- Label and input for log_id start -->
   <div class="form-group">
     <%= f.label :log_id %>
 
-    <!-- Input for log_id start -->
     <%= f.text_field :log_id, class: "form-control" %>
-    <!-- Input for log_id end -->
   </div>
-  <!-- Label and input for log_id end -->
 
-  <!-- Label and input for liker_id start -->
-  <!-- Input for liker_id start -->
   <%= f.hidden_field :liker_id, value: @user.id %>
-  <!-- Input for liker_id end -->
-  <!-- Label and input for liker_id end -->
 
   <%= f.submit "Create like", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

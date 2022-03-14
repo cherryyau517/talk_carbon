@@ -6,9 +6,7 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Activity name</dt>
-      <!-- Display activity_name start -->
       <dd><%= activity_type.activity_name %></dd>
-      <!-- Display activity_name end -->
 
     </dl>
 
@@ -17,21 +15,17 @@
         <%= link_to_show_or_back activity_type, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link activity_type start -->
       <div class="col">
         <%= link_to edit_activity_type_url(activity_type), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link activity_type end -->
 
-      <!-- Delete link activity_type start -->
       <div class="col">
         <%= link_to activity_type, method: :delete, data: { confirm: "Do you really want to delete this activity_type?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link activity_type end -->
     </div>
   </div>
 

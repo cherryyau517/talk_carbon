@@ -6,37 +6,27 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Log</dt>
-      <!-- Display log_id start -->
       <dd>
         <% if @comment.log.present? %>
           <%= link_to comment.log, comment.log %>
         <% end %>
       </dd>
-      <!-- Display log_id end -->
 
       <dt>Commenter</dt>
-      <!-- Display commenter_id start -->
       <dd>
         <% if @comment.commenter.present? %>
           <%= link_to comment.commenter, comment.commenter %>
         <% end %>
       </dd>
-      <!-- Display commenter_id end -->
 
       <dt>Comment</dt>
-      <!-- Display comment start -->
       <dd><%= comment.comment %></dd>
-      <!-- Display comment end -->
 
       <dt>Date</dt>
-      <!-- Display date start -->
       <dd><%= comment.date %></dd>
-      <!-- Display date end -->
 
       <dt>Time</dt>
-      <!-- Display time start -->
       <dd><%= comment.time %></dd>
-      <!-- Display time end -->
 
     </dl>
 
@@ -45,7 +35,6 @@
         <%= link_to_show_or_back comment, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link comment start -->
       <div class="col">
         <% if current_user == @comment.commenter %>
           <%= link_to edit_comment_url(comment), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -53,9 +42,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link comment end -->
 
-      <!-- Delete link comment start -->
       <div class="col">
         <% if current_user == @comment.commenter %>
           <%= link_to comment, method: :delete, data: { confirm: "Do you really want to delete this comment?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -63,7 +50,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link comment end -->
     </div>
   </div>
 

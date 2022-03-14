@@ -1,52 +1,30 @@
-<!-- Form activity_ranking start -->
 <%= form_with(model: @activity_ranking, local: true) do |f| %>
-<!-- Form activity_ranking end -->
 
-  <!-- Label and input for user_id start -->
   <div class="form-group">
     <%= f.label :user_id %>
 
-    <!-- Input for user_id start -->
     <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_id end -->
   </div>
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for activity_id start -->
-  <!-- Input for activity_id start -->
   <%= f.hidden_field :activity_id, value: @activity_type.id %>
-  <!-- Input for activity_id end -->
-  <!-- Label and input for activity_id end -->
 
-  <!-- Label and input for date start -->
   <div class="form-group">
     <%= f.label :date %>
 
-    <!-- Input for date start -->
     <%= f.date_select :date, class: "form-control" %>
-    <!-- Input for date end -->
   </div>
-  <!-- Label and input for date end -->
 
-  <!-- Label and input for month start -->
   <div class="form-group">
     <%= f.label :month %>
 
-    <!-- Input for month start -->
     <%= f.text_field :month, class: "form-control" %>
-    <!-- Input for month end -->
   </div>
-  <!-- Label and input for month end -->
 
-  <!-- Label and input for carbon_amount start -->
   <div class="form-group">
     <%= f.label :carbon_amount %>
 
-    <!-- Input for carbon_amount start -->
     <%= f.text_field :carbon_amount, class: "form-control" %>
-    <!-- Input for carbon_amount end -->
   </div>
-  <!-- Label and input for carbon_amount end -->
 
   <%= f.submit "Create activity ranking", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

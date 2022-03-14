@@ -1,66 +1,36 @@
-<!-- Form activities_log start -->
 <%= form_with(model: @activities_log, local: true) do |f| %>
-<!-- Form activities_log end -->
 
-  <!-- Label and input for activity_id start -->
-  <!-- Input for activity_id start -->
   <%= f.hidden_field :activity_id, value: @activity_type.id %>
-  <!-- Input for activity_id end -->
-  <!-- Label and input for activity_id end -->
 
-  <!-- Label and input for date start -->
   <div class="form-group">
     <%= f.label :date %>
 
-    <!-- Input for date start -->
     <%= f.date_select :date, class: "form-control" %>
-    <!-- Input for date end -->
   </div>
-  <!-- Label and input for date end -->
 
-  <!-- Label and input for time start -->
   <div class="form-group">
     <%= f.label :time %>
 
-    <!-- Input for time start -->
     <%= f.date_select :time, class: "form-control" %>
-    <!-- Input for time end -->
   </div>
-  <!-- Label and input for time end -->
 
-  <!-- Label and input for activity_remarks start -->
   <div class="form-group">
     <%= f.label :activity_remarks %>
-    <!-- Input for activity_remarks start -->
     <%= f.text_area :activity_remarks, rows: "3", class: "form-control" %>
-    <!-- Input for activity_remarks end -->
   </div>
-  <!-- Label and input for activity_remarks end -->
 
-  <!-- Label and input for addition start -->
   <div class="form-check">
-    <!-- Input for addition start -->
     <%= f.check_box :addition, class: "form-check-input" %>
-    <!-- Input for addition end -->
     <%= f.label :addition, class: "form-check-label" %>
   </div>
-  <!-- Label and input for addition end -->
 
-  <!-- Label and input for carbon_amount start -->
   <div class="form-group">
     <%= f.label :carbon_amount %>
 
-    <!-- Input for carbon_amount start -->
     <%= f.text_field :carbon_amount, class: "form-control" %>
-    <!-- Input for carbon_amount end -->
   </div>
-  <!-- Label and input for carbon_amount end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
 
   <%= f.submit "Create activities log", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

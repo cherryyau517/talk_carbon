@@ -6,11 +6,9 @@
   <ul class="list-group list-group-flush">
     <% @user.logs.each do |activities_log| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/activities_logs/<%= activities_log.id %>">
           <%= activities_log %>
         </a>
-        <!-- Show link end -->
 
       </li>
     <% end %>
