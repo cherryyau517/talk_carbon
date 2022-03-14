@@ -1,0 +1,62 @@
+<!-- Form monthly_record start -->
+<%= form_with(model: @monthly_record, local: true) do |f| %>
+<!-- Form monthly_record end -->
+
+  <!-- Label and input for user_id start -->
+  <!-- Input for user_id start -->
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <!-- Input for user_id end -->
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for date start -->
+  <div class="form-group">
+    <%= f.label :date %>
+
+    <!-- Input for date start -->
+    <%= f.date_select :date, class: "form-control" %>
+    <!-- Input for date end -->
+  </div>
+  <!-- Label and input for date end -->
+
+  <!-- Label and input for month start -->
+  <div class="form-group">
+    <%= f.label :month %>
+
+    <!-- Input for month start -->
+    <%= f.text_field :month, class: "form-control" %>
+    <!-- Input for month end -->
+  </div>
+  <!-- Label and input for month end -->
+
+  <!-- Label and input for monthly_net_carbon start -->
+  <div class="form-group">
+    <%= f.label :monthly_net_carbon %>
+
+    <!-- Input for monthly_net_carbon start -->
+    <%= f.text_field :monthly_net_carbon, class: "form-control" %>
+    <!-- Input for monthly_net_carbon end -->
+  </div>
+  <!-- Label and input for monthly_net_carbon end -->
+
+  <!-- Label and input for offset_solution start -->
+  <div class="form-group">
+    <%= f.label :offset_solution %>
+
+    <!-- Input for offset_solution start -->
+    <%= f.text_field :offset_solution, class: "form-control" %>
+    <!-- Input for offset_solution end -->
+  </div>
+  <!-- Label and input for offset_solution end -->
+
+  <!-- Label and input for offset_carbon_amount start -->
+  <div class="form-group">
+    <%= f.label :offset_carbon_amount %>
+
+    <!-- Input for offset_carbon_amount start -->
+    <%= f.text_field :offset_carbon_amount, class: "form-control" %>
+    <!-- Input for offset_carbon_amount end -->
+  </div>
+  <!-- Label and input for offset_carbon_amount end -->
+
+  <%= f.submit "Create monthly record", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

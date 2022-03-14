@@ -24,7 +24,12 @@ class ActivityRankingsController < ApplicationController
     @activity_ranking = ActivityRanking.new(activity_ranking_params)
 
     if @activity_ranking.save
-      redirect_to @activity_ranking, notice: 'Activity ranking was successfully created.'
+      message = 'ActivityRanking was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @activity_ranking, notice: message
+      end
     else
       render :new
     end

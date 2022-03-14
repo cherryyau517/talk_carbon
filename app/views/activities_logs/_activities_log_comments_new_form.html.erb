@@ -1,0 +1,51 @@
+<!-- Form comment start -->
+<%= form_with(model: @comment, local: true) do |f| %>
+<!-- Form comment end -->
+
+  <!-- Label and input for log_id start -->
+  <!-- Input for log_id start -->
+  <%= f.hidden_field :log_id, value: @activities_log.id %>
+  <!-- Input for log_id end -->
+  <!-- Label and input for log_id end -->
+
+  <!-- Label and input for commenter_id start -->
+  <div class="form-group">
+    <%= f.label :commenter_id %>
+
+    <!-- Input for commenter_id start -->
+    <%= f.text_field :commenter_id, class: "form-control" %>
+    <!-- Input for commenter_id end -->
+  </div>
+  <!-- Label and input for commenter_id end -->
+
+  <!-- Label and input for comment start -->
+  <div class="form-group">
+    <%= f.label :comment %>
+    <!-- Input for comment start -->
+    <%= f.text_area :comment, rows: "3", class: "form-control" %>
+    <!-- Input for comment end -->
+  </div>
+  <!-- Label and input for comment end -->
+
+  <!-- Label and input for date start -->
+  <div class="form-group">
+    <%= f.label :date %>
+
+    <!-- Input for date start -->
+    <%= f.date_select :date, class: "form-control" %>
+    <!-- Input for date end -->
+  </div>
+  <!-- Label and input for date end -->
+
+  <!-- Label and input for time start -->
+  <div class="form-group">
+    <%= f.label :time %>
+
+    <!-- Input for time start -->
+    <%= f.date_select :time, class: "form-control" %>
+    <!-- Input for time end -->
+  </div>
+  <!-- Label and input for time end -->
+
+  <%= f.submit "Create comment", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

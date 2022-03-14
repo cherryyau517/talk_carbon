@@ -8,6 +8,12 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @monthly_record = MonthlyRecord.new
+    @activity_ranking = ActivityRanking.new
+    @activities_log = ActivitiesLog.new
+    @comment = Comment.new
+    @like = Like.new
+    @following = Following.new
   end
 
   # GET /users/new

@@ -8,6 +8,7 @@ class ActivitiesLogsController < ApplicationController
 
   # GET /activities_logs/1
   def show
+    @comment = Comment.new
   end
 
   # GET /activities_logs/new
@@ -24,7 +25,12 @@ class ActivitiesLogsController < ApplicationController
     @activities_log = ActivitiesLog.new(activities_log_params)
 
     if @activities_log.save
-      redirect_to @activities_log, notice: 'Activities log was successfully created.'
+      message = 'ActivitiesLog was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @activities_log, notice: message
+      end
     else
       render :new
     end

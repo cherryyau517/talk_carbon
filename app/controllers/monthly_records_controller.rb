@@ -24,7 +24,12 @@ class MonthlyRecordsController < ApplicationController
     @monthly_record = MonthlyRecord.new(monthly_record_params)
 
     if @monthly_record.save
-      redirect_to @monthly_record, notice: 'Monthly record was successfully created.'
+      message = 'MonthlyRecord was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @monthly_record, notice: message
+      end
     else
       render :new
     end

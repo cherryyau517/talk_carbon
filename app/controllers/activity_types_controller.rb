@@ -8,6 +8,8 @@ class ActivityTypesController < ApplicationController
 
   # GET /activity_types/1
   def show
+    @activity_ranking = ActivityRanking.new
+    @activities_log = ActivitiesLog.new
   end
 
   # GET /activity_types/new
