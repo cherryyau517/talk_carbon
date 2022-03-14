@@ -6,6 +6,9 @@ class ActivityTypeResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :activity_rankings,
+             foreign_key: :activity_id
+
   has_many   :activities_logs,
              foreign_key: :activity_id
 

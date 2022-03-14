@@ -10,6 +10,9 @@ class ActivityRankingResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :activity,
+             resource: ActivityTypeResource
+
   belongs_to :user
 
   # Indirect associations
