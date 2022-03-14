@@ -8,6 +8,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :monthly_records
+
   has_many   :activity_rankings
 
   has_many   :activities_logs
